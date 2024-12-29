@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/loginStyle.css')}}">
+  <script type="text/javascript" src="{{ url_for('static', filename='script/log.js') }}"></script>
+</head>
+
+<body>
+  <div class="form">
+    <form id="login-form">
+      <span style="color:yellowgreen">Existing User?</span>
+      <br>
+      <span>Username</span>
+      <input type="text" name="username" id="username" placeholder="Enter your Username" required />
+      <i class='bx bxs-user'></i>
+      <br>
+      <span>Password</span>
+      <input type="password" name="password" id="password" placeholder="Enter your Password" required />
+      <i class='bx bxs-lock-alt'></i>
+      <br>
+      <br>
+      <input class="log" type="button" name="Login" id="loginButton" value="Login" onclick="login()">
+      <br>
+      <label><a href="/">Main Menu</a></label>
+      <br>
+      <label><a href="signup" class="log1">New User?</a></label>
+    </form>
+  </div>
+</body>
+
+</html>

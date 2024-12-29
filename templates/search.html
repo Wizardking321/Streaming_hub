@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Search</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/searchStyle.css')}}">
+	<script type="text/javascript" src="{{ url_for('static', filename='script/search.js') }}"></script>
+</head>
+
+<body>
+	<form>
+		<label for="mName">Search Movie Name:</label>
+		<input type="text" id="mName" name="mName"><br><br>
+		<label for="aName">Search by Actor Name:</label>
+		<input type="text" id="aName" name="aName"><br><br>
+		<input class="log" type="button" value="Search" onclick="search()">
+		<input class="log" type="button" value="Search by Image" onclick="search_Image()">
+		<input class="log" type="button" value="Add to Library" onclick="addToLibrary()">
+		<input class="log button" type="button" value="Back" onclick="window.location.href='/library'" />
+		<input id="image-upload" type="file" name="image" style="display: none;" onchange="sendingImage()">
+	</form>
+	<table id="movies-table">
+		<thead class="t1">
+			<tr>
+				<th>Select</th>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Release Date</th>
+				<th>Overview</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for movie in movies %}
+			<tr>
+				<td><input type="checkbox" name="selected_movies[]" value="{{ movie.ID }}"></td>
+				<td>{{ movie.ID }}</td>
+				<td>{{ movie.Title }}</td>
+				<td>{{ movie.Release_Date }}</td>
+				<td>{{ movie.Overview }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+
+</html>
